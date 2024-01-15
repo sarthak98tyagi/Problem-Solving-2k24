@@ -40,10 +40,21 @@ class Solution {
     }
     public int max_courses(int n, int t, int[] arr) {
         // code here
-        int[][] dp = new int[n][t+1];
-        for(int i=0;i<n;i++)
-            Arrays.fill(dp[i],-1);
-        return fun(0,t,arr,dp);
+        int[][] dp = new int[n+1][t+1];
+        for(int i=(n-1);i>=0;i--){
+            for(int j=0;j<=t;j++){
+                int a=0,b=0;
+                if(arr[i]<=j){
+                    a=dp[i+1][j-arr[i]+(int)Math.floor(0.9*arr[i])]+1;
+                }
+                b=dp[i+1][j];
+                dp[i][j]=Math.max(a,b);
+            }
+        }
+        return dp[0][t];
+        // for(int i=0;i<n;i++)
+        //     Arrays.fill(dp[i],-1);
+        // return fun(0,t,arr,dp);
     }
 }
 
