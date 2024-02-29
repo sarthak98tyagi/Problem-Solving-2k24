@@ -19,6 +19,8 @@ class Solution {
             return 1;
                 
         }
+        if(i==s.length())
+            return 0;
         if(dp[i][j]!=-1)
             return dp[i][j];
         int ans = 0;
@@ -26,9 +28,7 @@ class Solution {
             ans = ans | check(i+1,j+1,s,p,dp);
         }
         if(p.charAt(j)=='*'){
-            ans = ans | check(i+1,j+1,s,p,dp) | check(i,j+1,s,p,dp);
-            if((i+1)<=s.length())
-                ans = ans | check(i+1,j,s,p,dp);
+            ans = ans | check(i,j+1,s,p,dp) | check(i+1,j,s,p,dp);
         }
         return dp[i][j]=ans;
     }
