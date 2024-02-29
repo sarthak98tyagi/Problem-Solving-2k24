@@ -31,3 +31,5 @@ class Solution {
                                                                    
     }
 }
+//O(n2*n1)  TC
+//O(n1+n2) SC
