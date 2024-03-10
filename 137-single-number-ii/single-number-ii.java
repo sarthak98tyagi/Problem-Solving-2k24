@@ -8,7 +8,7 @@ class Solution {
                     t++;
             }
             if(t%3!=0)
-                t=t%3;
+                t=1;
             else
                 continue;
             el=el|(1<<i);
